@@ -23,8 +23,23 @@ class App extends React.Component {
     this.setState({ loading: true });
     fetch("https://boiling-reaches-93648.herokuapp.com/food-shop/products")
       .then(response => response.json())
-      .then(json => this.setState({ products: json, loading: false }))
+      .then(json => {
+        const products = json.map(product => ({...product, isFavorite: false}));
+        this.setState({ products, loading: false });
+      })
       .catch(() => this.setState({ error: "Something went wrong", loading: false }));
+  }
+
+  toggleFavourite = id => {
+    this.setState(state =>({
+      products: state.products.map(product =>{
+        if (product.id === id) {
+          return {...product, isFavorite: !product.isFavorite}
+
+        }
+        return product
+      })
+    }))
   }
 
   render() {
@@ -34,7 +49,7 @@ class App extends React.Component {
         {error && <span>{error}</span>}
         {loading && <PacmanLoader/>}
 
-        <Shop products={products} />
+        <Shop products={products} toggleFavourite={this.toggleFavourite} />
       </PageLayout>
     );
   }
