@@ -1,5 +1,5 @@
 import React from "react";
-import { Shop } from "./pages";
+import { Shop, Favorites } from "./pages";
 import { PageLayout } from "./components";
 import { PacmanLoader } from 'react-spinners';
 
@@ -48,6 +48,8 @@ class App extends React.Component {
       <PageLayout navLinks={NAV_LINKS}>
         {error && <span>{error}</span>}
         {loading && <PacmanLoader/>}
+      <Favorites products={products.filter(product => product.isFavorite)}
+        toggleFavourite={this.toggleFavourite}/>
 
         <Shop products={products} toggleFavourite={this.toggleFavourite} />
       </PageLayout>
