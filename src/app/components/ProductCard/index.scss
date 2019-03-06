@@ -1,16 +1,18 @@
-main {
-  flex-grow: 1;
-  padding: 50px 20px 40px;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 60%;
-}
 .mainCard{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
   text-align: center;
+  input{
+    font-size: 20px;
+    margin: 5px 10px;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    padding: 1px;
+    text-align: center;
+  }
   .card{
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

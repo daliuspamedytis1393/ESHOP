@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ProductCard } from "../../components";
+import { ProductCard, ProductsContainer } from "../../components";
 var FontAwesome = require('react-fontawesome');
 
 
-function Shop({products, toggleFavourite}) {
+function Shop({products, toggleFavourite, updateCardCount}) {
 
   return (
-    <div className='mainCard'>
+    <ProductsContainer>
       {products.map(product => (
-        <ProductCard {...product} toggleFavourite={toggleFavourite}/>
+        <ProductCard {...product} toggleFavourite={toggleFavourite} updateCardCount={updateCardCount}/>
       ))}
-    </div>
+    </ProductsContainer>
   );
 }
 
@@ -24,6 +24,7 @@ Shop.propTypes = {
   })
 ),
 toggleFavourite: PropTypes.func.isRequired,
+updateCardCount: PropTypes.func.isRequired,
 };
 
 Shop.defaultProps = {
