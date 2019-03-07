@@ -1,7 +1,11 @@
 import React from "react";
 import { Shop, Favorites, Cart } from "./pages";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { PageLayout } from "./components";
 import { PacmanLoader } from 'react-spinners';
+
+
+
 
 
 
@@ -12,13 +16,12 @@ class App extends React.Component {
       products: [],
       error: null,
       loading: false,
-      route: 'shop',
     };
 
     this.NAV_LINKS = ["shop", "Cart", "favorites"].map(link => (
-      <button type="button" onClick={() => this.setState({route: link})}>
+      <Link  to={`/${link}`}>
         {link}
-      </button>
+      </Link>
     ));
   }
 
@@ -56,30 +59,36 @@ class App extends React.Component {
       })
     }))
   }
-  renderRoute = () => {
-    const {route, products} = this.state;
 
-    switch (route) {
-      case 'shop':
-        return (<Shop products={products} toggleFavourite={this.toggleFavourite} updateCardCount={this.updateCardCount} />);
-      case 'favorites':
-        return (<Favorites products={products.filter(product => product.isFavorite)}
-          toggleFavourite={this.toggleFavourite} updateCardCount={this.updateCardCount}/>);
-      case 'Cart':
-        return (<Cart products={products.filter(product => product.cartCount > 0)}/>);
-      default:
-        return (<Shop products={products} toggleFavourite={this.toggleFavourite} updateCardCount={this.updateCardCount} />)
 
-    };
-  }
+  renderShop=()=>{
+    const {products} = this.state;
+      return(<Shop products={products} toggleFavourite={this.toggleFavourite} updateCardCount={this.updateCardCount} />)
+  };
+  renderCart=()=>{
+    const {products} = this.state;
+      return(<Cart products={products.filter(product => product.cartCount > 0)}/>)
+  };
+  renderFavorites=()=>{
+    const {products} = this.state;
+      return(<Favorites products={products.filter(product => product.isFavorite)}
+        toggleFavourite={this.toggleFavourite} updateCardCount={this.updateCardCount}/>);
+  };
+
   render() {
     const { products, loading, error} = this.state;
     return (
+      <Router>
       <PageLayout navLinks={this.NAV_LINKS}>
         {error && <span>{error}</span>}
         {loading && <PacmanLoader/>}
-        {this.renderRoute()}
+
+        <Route exact path="/shop" component={this.renderShop} />
+        <Route path="/Cart" component={this.renderCart} />
+        <Route path="/Favorites" component={this.renderFavorites} />
+        <Redirect exact from="/" to="/shop" > </Redirect>
       </PageLayout>
+      </Router>
     );
   }
 }
