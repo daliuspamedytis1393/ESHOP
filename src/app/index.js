@@ -8,7 +8,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
-import { Shop, Favorites, Cart, PageNotFound } from "./pages";
+import { Shop, Favorites, Cart, PageNotFound, Login } from "./pages";
 import { PageLayout } from "./components";
 
 function PrivateRoute({ allow, path, ...props }) {
@@ -66,9 +66,14 @@ class App extends React.Component {
           {error && <span>{error}</span>}
           {loading && <PacmanLoader />}
           <Switch>
+            <Route exact path="/login" component={Login} />
             <Route exact path="/shop" component={Shop} />
-            <PrivateRoute allow={allow} exact path="/Cart" component={Cart} />
-            <Route path="/Favorites" component={Favorites} />
+            <Route exact path="/Cart" component={Cart} />
+            <PrivateRoute
+              allow={allow}
+              path="/Favorites"
+              component={Favorites}
+            />
             <Route exact path="/404" component={PageNotFound} />
             <Redirect exact from="/" to="/shop">
               {" "}

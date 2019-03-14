@@ -50,7 +50,7 @@
         margin-right: 5px;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 255);
 
-        border-radius: 5px;
+
 
         text-decoration: none;
         cursor: pointer;
@@ -73,7 +73,9 @@
     margin: 0 auto;
     width: 80%;
     button{
-      border-radius: 50%;
+      border-radius: 5px;
+      padding: 5px;
+      border: none;
 
     }
   }
