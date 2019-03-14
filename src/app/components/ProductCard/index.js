@@ -1,25 +1,42 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './index.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import "./index.scss";
 
-
-function ProductCard({image, name, price, currency, id, isFavorite, toggleFavourite, cartCount, updateCardCount,
+function ProductCard({
+  image,
+  name,
+  price,
+  currency,
+  id,
+  isFavorite,
+  toggleFavorite,
+  cartCount,
+  updateCartCount,
 }) {
-
   return (
     <div className="card">
-      <img src={image} alt={name}></img>
-      <p className="name" key={id}>{name}</p>
-      <p className="price"><b>price: </b>{price} {currency}</p>
+      <img src={image} alt={name} />
+      <p className="name" key={id}>
+        {name}
+      </p>
+      <p className="price">
+        <b>price: </b>
+        {price} {currency}
+      </p>
 
-      
-      <input type="number" min={0} onChange={ e => updateCardCount(id, e.target.value) } value={cartCount}/>
-      <button onClick={() => toggleFavourite(id)}type='button'><span role='img' aria-label=''>{isFavorite ? "💚" : "⭐"}</span> </button>
+      <input
+        type="number"
+        min={0}
+        onChange={e => updateCartCount(id, e.target.value)}
+        value={cartCount}
+      />
+      <button type="button" onClick={() => toggleFavorite(id)}>
+        <span role="img" aria-label="">
+          {isFavorite ? "💚" : "⭐"}
+        </span>
+      </button>
     </div>
-
   );
-
-
 }
 
 ProductCard.propTypes = {
@@ -31,12 +48,12 @@ ProductCard.propTypes = {
       currency: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired,
       isFavorite: PropTypes.bool.isRequired,
-      toggleFavourite: PropTypes.func.isRequired,
-      updateCardCount: PropTypes.func.isRequired,
-      cartCount: PropTypes.oneOf([PropTypes.number, PropTypes.string]).isRequired,
-      })
-)
+      toggleFavorite: PropTypes.func.isRequired,
+      updateCartCount: PropTypes.func.isRequired,
+      cartCount: PropTypes.oneOf([PropTypes.number, PropTypes.string])
+        .isRequired,
+    })
+  ),
 };
 
-
-export default ProductCard
+export default ProductCard;

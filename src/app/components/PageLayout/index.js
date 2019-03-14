@@ -7,7 +7,7 @@ function PageLayout({ children, navLinks }) {
     <div className="Page-Layout">
       <header>
         <img
-          src="https://www.brandcrowd.com/gallery/brands/thumbs/thumb12609037698059.jpg"
+          src="https://universalhiker.fr/wp-content/uploads/2019/02/000749-online-store-logos-design-free-online-E-commerce-cart-logo-maker-01.png"
           alt="Company logo"
           className="Logo"
         />

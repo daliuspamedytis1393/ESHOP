@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
+
+
 .Page-Layout {
   height: 100vh;
   display: flex;
@@ -11,29 +13,54 @@
 
     .Logo {
       position: absolute;
-      height: 100px;
-      border: 1px solid #e1e1e1;
+      height: 50px;
+
+    animation: slide 20s infinite;
+    animation-timing-function: linear
+
+    }
+    @keyframes slide {100%,{
+      transform: rotate(360deg);
     }
 
+    }
+
+
     nav {
-      background: #46924a;
+      background: #001a33;
       display: flex;
       flex-direction: row-reverse;
       padding: 0 20px 0 10px;
+      box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 255);
+      position: fixed;
+      opacity: 0.8;
+      margin-bottom: 80px;
+      min-width: 100%;
+
 
       button,
       a {
         font-size: 18px;
-        line-height: 42px;
+        line-height: 55px;
         background: transparent;
+        font-family: monospace;
+        padding: 7px;
         border: none;
         color: #fff;
-        cursor: pointer;
-        transition: all 0.3 linear;
+        margin-right: 5px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 255);
 
-        &:hover {
+        border-radius: 5px;
+
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s linear;
+
+        &:hover, &.active {
           background: #fff;
-          color: #46924a;
+          color: #001a33;
+          border-radius: 5px;
+
         }
       }
     }
@@ -45,6 +72,10 @@
     align-items: center;
     margin: 0 auto;
     width: 80%;
+    button{
+      border-radius: 50%;
+
+    }
   }
 
 
@@ -52,7 +83,11 @@
   footer {
     padding: 20px;
     text-align: center;
-    background: #46924a;
+    background: #001a33;
+    line-height: 5px;
     color: #ffffff;
+    opacity: 0.7;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 255);
+
   }
 }

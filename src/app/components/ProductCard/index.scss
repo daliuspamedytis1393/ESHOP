@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+    font-family: monospace;
 
   text-align: center;
   input{
@@ -20,6 +21,9 @@
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
       transition: 0.1s;
       transform: scale(1.02, 1.01);
+      img{
+        opacity: 0.5;
+      }
     }
 
 
@@ -38,6 +42,7 @@
     margin: 5px;
     img{
       display: flex;
+      border-radius: 50%;
       max-width: 100%;
     }
     button{
@@ -53,8 +58,9 @@
         margin-right: 0;
       }
       &:hover{
-        transition: 1s;
-        background-color: #7FFFD4;
+        transition: 0.2s;
+      
+        background-color: #001a33;;
         color: grey;
         cursor: pointer;
       }

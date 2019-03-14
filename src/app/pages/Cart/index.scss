@@ -26,15 +26,12 @@
     width: 50px;
     display: inline-block;
     margin-right: 20px;
+    border-radius: 50%;
     vertical-align: middle;
-    -webkit-animation: cog 1s infinite;
-	-moz-animation: cog 1s infinite;
-	-ms-animation: cog 1s infinite;
-	animation: cog 1s infinite;
-	-webkit-animation-timing-function: linear;
-	-moz-animation-timing-function: linear;
-	-ms-animation-timing-function: linear;
-	animation-timing-function: linear	
+
+	animation: cog 2s infinite;
+
+	animation-timing-function: linear
   }
 }
 
